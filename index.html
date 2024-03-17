@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Envelope + Letter (Open/Close on Click)</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="icon"
+      href="https://i.pinimg.com/564x/ca/9f/30/ca9f304a6164c919ca1dc897029f438e.jpg"
+      type="image/icon"
+    />
+  </head>
+  <body>
+    <audio id="audio" src="rapuh.mp3"></audio>
+    <div class="container">
+      <div class="envelope-wrapper">
+        <div class="envelope">
+          <div class="letter">
+            <div class="text">
+              <strong>Hai kamu...</strong>
+              <p>
+                Setelah angka empat belas apasih? <br /><b>Lama bales ya?</b>
+              </p>
+              <p>Sebelum angka empat belas apa? <br /><b>Tidak bales ya?</b></p>
+              <p>
+                Gini amat kisah cinta anak muda jaman sekarang <br />Huhuhu 😭
+              </p>
+              <p style="display: flex; justify-content: center">
+                <i>~Emboiii~</i>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="heart"></div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const audio = document.getElementById("audio");
+        audio.play(); // Memulai pemutaran audio secara manual
+      });
+
+      const envelope = document.querySelector(".envelope-wrapper");
+      envelope.addEventListener("click", () => {
+        envelope.classList.toggle("flap");
+      });
+
+      // Mematikan pemutaran audio setelah selesai diputar
+      document.getElementById("audio").addEventListener("ended", function () {
+        this.currentTime = 0;
+        this.pause();
+      });
+    </script>
+  </body>
+</html>
